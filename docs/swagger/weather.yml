@@ -1,0 +1,38 @@
+/api/live-weather:
+  get:
+    tags:
+      - Weather
+    summary: Retorna informações do clima para todas cidades
+    responses:
+      200:
+        description: Informações do clima atualizados de cada cidade
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  city_id:
+                    type: integer
+                  max_temperature:
+                    type: number
+                  min_temperature:
+                    type: number
+                  wind_speed:
+                    type: number
+                  rainfall_last_hour:
+                    type: integer
+                  updated_at:
+                    type: string
+                    format: date-time
+                  city:
+                    type: string
+                  latitude:
+                    type: string
+                    nullable: true
+                  longitude:
+                    type: string
+                    nullable: true
+                  gmt:
+                    type: integer

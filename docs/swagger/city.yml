@@ -1,0 +1,63 @@
+/api/city/{id}:
+  patch:
+    tags:
+      - City
+    summary: Atualiza informações da cidade
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: ID da cidade a ser atualizada
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                nullable: true
+              latitude:
+                type: string
+                nullable: true
+              longitude:
+                type: string
+                nullable: true
+              gmt:
+                type: integer
+                nullable: true
+              openWeatherMapId:
+                type: integer
+                nullable: true
+    responses:
+      200:
+        description: Informações da cidade atualizadas com sucesso
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+                latitude:
+                  type: string
+                longitude:
+                  type: string
+                gmt:
+                  type: integer
+                openWeatherMapId:
+                  type: integer
+      500:
+        description: Internal Server Error
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
